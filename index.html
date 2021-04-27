@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD + Firebase</title>
+    <style>
+      h2 {
+        text-align: center;
+      }
+      .container {
+        margin-left: auto;
+        margin-right: auto;
+        width: 500px;
+        /* text-align: center; */
+        border: 2px solid red;
+        padding: 20px;
+      }
+      .container .form {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>CRUD Operations with Firebase</h2>
+    <div class="container">
+      <div class="form">
+        RollNo: <input type="text" id="rollBox" /> <br /><br />
+        Name: <input type="text" id="nameBox" /> <br /><br />
+        Gender: <input type="text" id="genBox" /> <br /><br />
+        Address: <input type="text" id="addBox" /> <br /><br />
+        <button id="insert">Insert Data</button>
+        <button id="read">Read Data</button>
+        <button id="update">Update Data</button>
+        <button id="delete">Delete Data</button>
+      </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase.js"></script>
+    <script src="./fireConfig.js"></script>
+    <script src="./myscript.js"></script>
+  </body>
+</html>
