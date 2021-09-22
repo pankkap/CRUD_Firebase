@@ -4,40 +4,33 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CRUD + Firebase</title>
-    <style>
-      h2 {
-        text-align: center;
-      }
-      .container {
-        margin-left: auto;
-        margin-right: auto;
-        width: 500px;
-        /* text-align: center; */
-        border: 2px solid red;
-        padding: 20px;
-      }
-      .container .form {
-        text-align: center;
-      }
-    </style>
+    <title>CRUD with Firebase</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h2>CRUD Operations with Firebase</h2>
     <div class="container">
+      <h2>CRUD with Firebase</h2>
+      <hr />
+      <br />
       <div class="form">
-        RollNo: <input type="text" id="rollBox" /> <br /><br />
-        Name: <input type="text" id="nameBox" /> <br /><br />
-        Gender: <input type="text" id="genBox" /> <br /><br />
-        Address: <input type="text" id="addBox" /> <br /><br />
-        <button id="insert">Insert Data</button>
-        <button id="read">Read Data</button>
-        <button id="update">Update Data</button>
-        <button id="delete">Delete Data</button>
+        RollNo: <input type="text" name="RollNo" id="roll" /> <br /><br />
+        Name: <input type="text" name="name" id="name" /> <br /><br />
+        Gender: <input type="text" name="gender" id="gender" /> <br /><br />
+        Address: <input type="text" name="Address" id="address" /> <br /><br />
+      </div>
+
+      <div class="buttons">
+        <button id="insert">Insert</button>
+        <button id="read">Read</button>
+        <button id="update">Update</button>
+        <button id="delete">Delete</button>
       </div>
     </div>
+
     <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase.js"></script>
+
     <script src="./fireConfig.js"></script>
+
     <script src="./myscript.js"></script>
   </body>
 </html>

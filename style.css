@@ -1,0 +1,32 @@
+body {
+  background-color: cornflowerblue;
+}
+.container {  
+  width: 500px;  
+  margin: 50px auto;
+  padding: 20px;
+  /* border: 2px solid red; */
+  font-family: arial;
+  font-size: 22px;
+  background-color: white;
+  border-radius: 20px;
+}
+h2 {
+  text-align: center;
+}
+.container div {
+  text-align: center;
+}
+input {
+  width: 300px;
+  padding: 5px;
+}
+button {
+  width: 90px;
+  padding: 10px;
+  margin: 10px;
+  font-size: 16px;
+  background-color: cornflowerblue;
+  border: none;
+  color: white;
+}
