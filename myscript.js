@@ -1,91 +1,74 @@
-var rollV, nameV, genV, addV;
-function readForm() {
-  // alert("readForm called")
-  rollV = document.getElementById("rollBox").value;
-  nameV = document.getElementById("nameBox").value;
-  genV = document.getElementById("genBox").value;
-  addV = document.getElementById("addBox").value;
+var rollV, nameV, genderV, addressV;
+
+function readFom() {
+  rollV = document.getElementById("roll").value;
+  nameV = document.getElementById("name").value;
+  genderV = document.getElementById("gender").value;
+  addressV = document.getElementById("address").value;
+  console.log(rollV, nameV, addressV, genderV);
 }
 
-// Insert Data in FireBase
-
 document.getElementById("insert").onclick = function () {
-  // alert("Hello insert called")
-  readForm();
+  readFom();
+
   firebase
     .database()
     .ref("student/" + rollV)
     .set({
+      rollNo: rollV,
       name: nameV,
-      rollno: rollV,
-      gender: genV,
-      address: addV,
+      gender: genderV,
+      address: addressV,
     });
-  document.getElementById("rollBox").value = "";
-  document.getElementById("nameBox").value = "";
-  document.getElementById("genBox").value = "";
-  document.getElementById("addBox").value = "";
-  console.log("Data Inserted");
   alert("Data Inserted");
+  document.getElementById("roll").value = "";
+  document.getElementById("name").value = "";
+  document.getElementById("gender").value = "";
+  document.getElementById("address").value = "";
 };
-// Read Data from FireBase
 
 document.getElementById("read").onclick = function () {
-  readForm();
-  // Validating user Exists or not
-  //   var fdbRefer = FirebaseDatabase.getInstance().getReference(
-  //     "student/" + rollV
-  //   );
-  //   if (!fdbRefer) {
-  //     alert(`student with ${rollV} is not exists`);
-  //   }
+  readFom();
 
   firebase
     .database()
     .ref("student/" + rollV)
-    .on("value", function (snapshot) {
-      document.getElementById("rollBox").value = snapshot.val().rollno;
-      document.getElementById("nameBox").value = snapshot.val().name;
-      document.getElementById("genBox").value = snapshot.val().gender;
-      document.getElementById("addBox").value = snapshot.val().address;
+    .on("value", function (snap) {
+      document.getElementById("roll").value = snap.val().rollNo;
+      document.getElementById("name").value = snap.val().name;
+      document.getElementById("gender").value = snap.val().gender;
+      document.getElementById("address").value = snap.val().address;
     });
 };
 
-// Update Data in FireBase
-
 document.getElementById("update").onclick = function () {
-  readForm();
+  readFom();
+
   firebase
     .database()
     .ref("student/" + rollV)
     .update({
+      //   rollNo: rollV,
       name: nameV,
-      //   rollno: rollV,    // remove Rollno, as it is not required
-      gender: genV,
-      address: addV,
+      gender: genderV,
+      address: addressV,
     });
-  document.getElementById("rollBox").value = "";
-  document.getElementById("nameBox").value = "";
-  document.getElementById("genBox").value = "";
-  document.getElementById("addBox").value = "";
-  console.log("Data Updated");
-  alert("Data Updated");
+  alert("Data Update");
+  document.getElementById("roll").value = "";
+  document.getElementById("name").value = "";
+  document.getElementById("gender").value = "";
+  document.getElementById("address").value = "";
 };
-
-// Delete Data in FireBase
-
 document.getElementById("delete").onclick = function () {
-  readForm();
-  if (confirm("Are u sure want to delete")) {
-    document.getElementById("nameBox").value = "";
-    document.getElementById("genBox").value = "";
-    document.getElementById("addBox").value = "";
-    firebase
-      .database()
-      .ref("student/" + rollV)
-      .remove();
-    document.getElementById("rollBox").value = "";
-    console.log("Data Deleted");
-    alert("Data Deleted");
-  }
+  readFom();
+
+  firebase
+    .database()
+    .ref("student/" + rollV)
+    .remove();
+  alert("Data Deleted");
+  document.getElementById("roll").value = "";
+  document.getElementById("name").value = "";
+  document.getElementById("gender").value = "";
+  document.getElementById("address").value = "";
 };
